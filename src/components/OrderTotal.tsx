@@ -35,7 +35,7 @@ export default function OrderTotal({ cart }: Props) {
     <div className="flex justify-between items-center border-t-2 border-black p-4">
       <div className="text-lg font-bold">Order Total</div>
       <div className="text-2xl text-red font-bold">
-        <Price amount={data?.total ?? 0} locale={locale} />
+        <Price amount={(data?.total ?? 0) / 100} locale={locale} />
       </div>
     </div>
   );

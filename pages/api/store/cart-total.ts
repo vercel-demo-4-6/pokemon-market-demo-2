@@ -9,12 +9,10 @@ export default async function ApiCartTotal(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const items: Array<{ name: string; quantity: number }> = JSON.parse(
-    req.body
-  );
+  const items: Array<[string, number]> = JSON.parse(req.body);
 
   let total = 0;
-  for (const { name, quantity } of items) {
+  for (const [name, quantity] of items) {
     const data = await genPokemonByName(name);
     const pokemon = serializePokemon(data.pokemon);
     const species = serializeSpecies(data.species);
