@@ -7,6 +7,7 @@ import cx from 'classnames';
 import useShoppingCart from "@/components/useShoppingCart";
 import {MdErrorOutline} from 'react-icons/md';
 import {BsCheck2Circle} from 'react-icons/bs';
+import OrderTotal from "@/components/OrderTotal";
 
 export default function CartPage() {
   const { trimCart, clearCart, cart } = useShoppingCart();
@@ -50,6 +51,7 @@ export default function CartPage() {
             </li>
           ))}
         </CartItems>
+        <OrderTotal cart={cart} />
         <form
           className="p-4 self-end"
           onSubmit={(e) => {
